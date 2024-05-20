@@ -14,4 +14,5 @@ with DAG(
         print(some_input)
 
     python_task_1 = print_context('task decorator1 실행')
-    python_task_2 = print_context('task decorator2 실행')    
+    python_task_1 = print_context('task decorator2 실행')
+    python_task_1 = print_context('task decorator3 실행')    
