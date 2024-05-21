@@ -13,7 +13,7 @@ with DAG(
     regist2_t1 = PythonOperator(
         task_id='regist2_t1',
         python_callable=regist2,
-        op_args=['jw','m','kr','gj'],
+        op_args=['jw','m'],
         op_kwargs={'email':'dhks223@naver.com','phone':'010'}
     )
 
