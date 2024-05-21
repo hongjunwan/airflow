@@ -6,10 +6,10 @@ def regist(name,sex,*args):
     print(f'성별: {sex}')
     print(f'기타옵션들: {args}') 
 
-def regist2(*args,name,sex,**kwargs):
-    print(f'기타옵션들: {args}')
-    print(name)
-    print(sex)
+def regist2(name,sex,**kwargs):
+ #   print(f'기타옵션들: {args}')
+    print(f'이름:{name}')
+    print(f'성별:{sex}')
     email = kwargs['email'] or None
     phone = kwargs['phone'] or None
     
