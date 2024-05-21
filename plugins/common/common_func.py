@@ -6,7 +6,7 @@ def regist(name,sex,*args):
     print(f'성별: {sex}')
     print(f'기타옵션들: {args}') 
 
-def regist2(name,sex,*args,**kwargs):
+def regist2(*args,name,sex,**kwargs):
     print(f'기타옵션들: {args}')
     print(name)
     print(sex)
