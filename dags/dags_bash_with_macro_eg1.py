@@ -8,7 +8,7 @@ with DAG(
     start_date=pendulum.datetime(2024, 4, 1, tz="Asia/Seoul"),
     catchup=False
 ) as dag:
-    # START_DATE: 전월 말일, END_DATE: 1일전
+    # START_DATE: 전월 말일, END_DATE: 1일전!
     bash_task_1 = BashOperator(
         task_id='bash_task_1',
         env={'START_DATE':'{{data_interval_start.in_timezone("Asia/Seoul")|ds}}',
