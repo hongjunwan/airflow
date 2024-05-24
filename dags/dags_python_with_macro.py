@@ -10,8 +10,8 @@ with DAG(
 ) as dag:
     # macro 사용
     @task(task_id='task_using_macro',
-          templates_dict={'start_date':'{{(data_interval_end.in_timezone("Asia/Seoul") + macro.dateutil.relativedelta.relativedelta(months=-1, days=1))|ds}}',
-                          'end_date':'{{(data_interval_end.in_timezone("Asia/Seoul").replace(day=1) + macro.dateutil.relativedelta.relativedelta(days=-1))|ds}}'
+          templates_dict={'start_date':'{{(data_interval_end.in_timezone("Asia/Seoul") + macros.dateutil.relativedelta.relativedelta(months=-1, days=1))|ds}}',
+                          'end_date':'{{(data_interval_end.in_timezone("Asia/Seoul").replace(day=1) + macros.dateutil.relativedelta.relativedelta(days=-1))|ds}}'
           } # templates_dict는 키값이고 start,end 는 딕셔너리
             # templates_dict가 키값이 되고 def의 **kwargs로 templates_dict의 값(start_date, end_date) 전체가 전달됨
     )
