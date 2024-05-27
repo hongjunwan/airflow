@@ -24,7 +24,7 @@ with DAG(
         print(value1)
         print(value2)  
     
-    xcom_push1() >> xcom_push2() >> xcom_pull()
+    xcom_push1() >> xcom_pull()
     #xcom_pull()에서 value1 값으로 pull해오는 result1의 값이
     #task명이 명시되지 않아 push1,push2 중 어느 값을 가져오는지
     #확인필요 -> 순서상 push2가 뒤에 돌기때문에 push2의 값으로 가져옴
