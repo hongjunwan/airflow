@@ -17,7 +17,7 @@ with DAG(
     @task(task_id='python_xcom_pull_1')
     def xcom_pull_1(**kwargs):
         ti = kwargs['ti']
-        value1 = ti.xcom_pull(task_id='python_xcom_push_by_return') #해당 task_id가 return 한 값 가져옴
+        value1 = ti.xcom_pull(task_ids='python_xcom_push_by_return') #해당 task_id가 return 한 값 가져옴
         print('xcom_pull 매서드로 직접 찾은 리턴 값:' + value1)  
 
     @task(task_id='python_xcom_pull_2')
