@@ -25,6 +25,6 @@ with DAG(
         print('함수 입력값으로 받은 값:' + status)
           
     
-    python_xcom_push_by_return = xcom_push_result() # return값 Success를 python_xcom_push_by_return 함수에 들어간 것처럼 만듬
+    python_xcom_push_by_return = xcom_push_result() # return값 Success를 python_xcom_push_by_return(airflow 텍스트 개체임)함수에 들어간 것처럼 만듬
     xcom_pull_2(python_xcom_push_by_return) # Success 값이 status로 들어감
     python_xcom_push_by_return >> xcom_pull_1()
