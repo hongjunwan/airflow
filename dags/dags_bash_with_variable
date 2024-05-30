@@ -17,7 +17,7 @@ with DAG(
         bash_command=f"echo variable:{var_value}"
     )
 
-    bash_var_2 = BashOperator(              # 2안
+    bash_var_2 = BashOperator(              # 2안, 2안을 권고함
         task_id="bash_var_2",
         bash_command="echo variave:{{var.value.sample_key}}"
     )
