@@ -15,7 +15,7 @@ with DAG(
     '''서울시 공공자전거 대여소 정보'''
     tb_cycle_station_info = SimpleHttpOperator(
         task_id='tb_cycle_station_info',
-        http_conn_id='CON_TEST', # 생성한 connections id 입력
+        http_conn_id='CON_TEST', # 생성한 connections id 입력, 내용 : http://openapi.seoul.go.kr:8080
         endpoint='{{var.value.apikey_openapi_seoul_go_kr}}/json/tbCycleStationInfo/1/10/',
                  # 인증키 직접 입력하지 않고 apikey_openapi_seoul_go_kr 변수에 인증키 작성
                  # 1/10: 1행~10행 까지
@@ -26,6 +26,8 @@ with DAG(
                         }
     ) # http://openapi.seoul.go.kr:8080/(인증키)/json/tbCycleStationInfo/가져올 첫행/가져올 마지막 행
       # 해당 api의 데이터 가져옴
+	  # SimpleHttpOperator 에서 return 한 값은 xcom에 들어감 
+	  # 다른 task에서 return 값 가져오려면 xcom 사용해야함
 
     @task(task_id='python_2')
     def python_2(**kwargs):
