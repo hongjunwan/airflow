@@ -24,7 +24,8 @@ with DAG(
                         'charset': 'utf-8',
                         'Accept': '*/*'
                         }
-    )
+    ) # http://openapi.seoul.go.kr:8080/(인증키)/json/tbCycleStationInfo/가져올 첫행/가져올 마지막 행
+      # 해당 api의 데이터 가져옴
 
     @task(task_id='python_2')
     def python_2(**kwargs):
