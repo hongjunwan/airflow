@@ -33,7 +33,7 @@ class SeoulApiToCsvOperator(BaseOperator):
                 start_row = end_row + 1 
                 end_row += 1000
 
-        if not os.path.exists(self.path): # directory가 없으면 수행
+        if not os.path.exists(self.path): # directory가 없으면 수행, dag: dags_seoul_api_corona.py 에서 넘겨받은 path 값에 해당하는 폴더가 없으면 생성
             os.system(f'mkdir -p {self.path}') # directory를 만듬
         total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=False) # csv형태로 만듬
 
