@@ -5,7 +5,7 @@ import pandas as pd
 class SeoulApiToCsvOperator(BaseOperator):
     template_fields = ('endpoint', 'path','file_name','base_dt')
 
-    def __init__(self, dataset_nm, path, file_name, base_dt=None, **kwargs):
+    def __init__(self, dataset_nm, path, file_name, base_dt=None, **kwargs): # dags에서 가져온 초기값 저장
         super().__init__(**kwargs)
         self.http_conn_id = 'CON_TEST'
         self.path = path
@@ -13,7 +13,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         self.endpoint = '{{var.value.apikey_openapi_seoul_go_kr}}/json/' + dataset_nm
         self.base_dt = base_dt
 
-    def execute(self, context):
+    def execute(self, context): # call_api 함수 값 반환받아서 파일 생성
         import os
         
         connection = BaseHook.get_connection(self.http_conn_id) # connection id를 통해 connection 정보를 가져올 수 있음 
@@ -37,7 +37,7 @@ class SeoulApiToCsvOperator(BaseOperator):
             os.system(f'mkdir -p {self.path}') # directory를 만듬
         total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=False) # csv형태로 만듬
 
-    def _call_api(self, base_url, start_row, end_row):
+    def _call_api(self, base_url, start_row, end_row): # 공공데이터 가져오는 수행부
         import requests
         import json 
 
