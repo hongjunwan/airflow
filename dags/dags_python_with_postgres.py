@@ -21,7 +21,7 @@ with DAG(
                 task_id = kwargs.get('ti').task_id
                 run_id = kwargs.get('ti').run_id
                 msg = 'insrt 수행'
-                sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);' # 실제 수행 sql
+                sql = 'insert into py_oprt_drct_insrt values (%s,%s,%s,%s);' # 실제 수행 sql
                 cursor.execute(sql,(dag_id,task_id,run_id,msg)) # %s에 차례대로 dag_id, task_id, run_id, msg 값 매핑
                 conn.commit()
 
