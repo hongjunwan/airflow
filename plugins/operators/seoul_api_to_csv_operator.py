@@ -21,7 +21,7 @@ class SeoulApiToCsvOperator(BaseOperator):
 
         total_row_df = pd.DataFrame() # 비어있는 dataframe
         start_row = 1
-        end_row = 5
+        end_row = 1000
         while True:
             self.log.info(f'시작:{start_row}')
             self.log.info(f'끝:{end_row}')
