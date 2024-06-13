@@ -11,7 +11,7 @@ with DAG(
     '''서울시 코로나19 확진자 발생동향'''
     tb_corona19_count_status = SeoulApiToCsvOperator(
         task_id='tb_corona19_count_status',
-        dataset_nm='TbCorona19CountStatus',
+        dataset_nm='bikeList',
         path='/opt/airflow/files/TbCorona19CountStatus/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash }}',
         # opt는 workspace 경로, files 폴더 생성하고 yaml 파일에서 연결해줘야함, data_interval 부분은 배치종료일자별 폴더 만들기 위해서 사용
         file_name='TbCorona19CountStatus.csv' # 해당명으로 파일 생성
