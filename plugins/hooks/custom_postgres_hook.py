@@ -39,9 +39,10 @@ class CustomPostgresHook(BaseHook):
         self.log.info('적재 건수:' + str(len(file_df)))
         uri = f'postgresql://{self.user}:{self.password}@{self.host}/{self.dbname}'
         engine = create_engine(uri)
-        file_df.to_sql(name=table_name,
-                            con=engine,
+        # to_sql : table 생성 부 
+        file_df.to_sql(name=table_name, 
+                            con=engine, # db정보 연결
                             schema='public',
-                            if_exists=if_exists,
-                            index=False
+                            if_exists=if_exists, # replace: 테이블이 존재하면 삭제 후 생성, append: 기존테이블에 추가, fail: 테이블이 존재하면 아무것도 안함
+                            index=False # 인덱스 생성여부
                         )
