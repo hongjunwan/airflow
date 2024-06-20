@@ -6,7 +6,7 @@ import pendulum
 with DAG(
     dag_id='dags_bash_sensor',
     start_date=pendulum.datetime(2024,5,1, tz='Asia/Seoul'),
-    schedule='0 6 * * *',
+    schedule='0 8 * * *',
     catchup=False
 ) as dag:
 
