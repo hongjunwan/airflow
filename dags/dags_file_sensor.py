@@ -10,10 +10,10 @@ with DAG(
 ) as dag:
     tvCorona19VaccinestatNew_sensor = FileSensor(
         task_id='tvCorona19VaccinestatNew_sensor',
-        fs_conn_id='conn_file_opt_airflow_files',
+        fs_conn_id='conn_file_opt_airflow_files', # local에서 file 타입으로 connection 생성 
         filepath='tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash }}/tvCorona19VaccinestatNew.csv',
         recursive=False,
-        poke_interval=60,
+        poke_interval=60, # 60초 간격으로 체크
         timeout=60*60*24, # 1일
         mode='reschedule'
     )
