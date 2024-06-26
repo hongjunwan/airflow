@@ -29,6 +29,6 @@ with DAG(
     @task(task_id='python_downstream_1', trigger_rule='all_done')
     def python_downstream_1():
         print('정상 처리')
-    # task4, trigger 하위조건 생성 all_done : task1,task2,task3이 모두 성공하면 실행(실패도 수행된것에 포함)
+    # task4, trigger 하위조건 생성 all_done : task1,task2,task3이 모두 수행하면 실행(실패도 수행된것에 포함)
 
     [bash_upstream_1, python_upstream_1(), python_upstream_2()] >> python_downstream_1()
