@@ -40,7 +40,7 @@ with DAG(
     sensor_task = PythonSensor(
         task_id='sensor_task',
         python_callable=check_api_update,
-        op_kwargs={'http_conn_id':'openapi.seoul.go.kr',
+        op_kwargs={'http_conn_id':'CON_TEST',
                    'endpoint':'{{var.value.apikey_openapi_seoul_go_kr}}/json/TbCorona19CountStatus',
                    'base_dt_col':'S_DT'},
         poke_interval=600,   #10분
