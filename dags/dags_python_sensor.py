@@ -9,7 +9,7 @@ with DAG(
     schedule='10 1 * * *',
     catchup=False
 ) as dag:
-    def check_api_update(http_conn_id, endpoint, gbase_dt_col, **kwargs):
+    def check_api_update(http_conn_id, endpoint, base_dt_col, **kwargs):
         import requests
         import json
         from dateutil import relativedelta
